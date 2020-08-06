@@ -1,0 +1,786 @@
+###############################################################################
+#
+# IAR ELF Linker V8.22.1.15669/W32 for ARM                04/Nov/2019  09:35:09
+# Copyright 2007-2018 IAR Systems AB.
+#
+#    Output file  =  D:\stm_pn\EWARM\stm_pn\Exe\stm_pn.hex
+#    Map file     =  D:\stm_pn\EWARM\stm_pn\List\stm_pn.map
+#    Command line =  
+#        -f C:\Users\HP\AppData\Local\Temp\EW8947.tmp
+#        (D:\stm_pn\EWARM\stm_pn\Obj\AssetMgm.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\main.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\SPI1_Master.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\startup_stm32f103xb.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_cortex.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_dma.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_flash.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_flash_ex.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_gpio.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_gpio_ex.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_msp.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_pwr.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_rcc.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_rcc_ex.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_spi.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_spi_ex.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_tim.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_tim_ex.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_hal_uart.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\stm32f1xx_it.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\system_stm32f1xx.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\TPS_1_API.o
+#        D:\stm_pn\EWARM\stm_pn\Obj\TPSDriver.o --redirect _Printf=_PrintfFull
+#        --redirect _Scanf=_ScanfFull -o D:\stm_pn\EWARM\stm_pn\Exe\stm_pn.hex
+#        --map D:\stm_pn\EWARM\stm_pn\List\stm_pn.map --config
+#        D:\stm_pn\EWARM/stm32f103xb_flash.icf --semihosting --entry
+#        __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__Heap_Handler  = DLMalloc
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The advanced heap was selected because the application calls memory
+allocation functions outside of system library functions, and there
+are calls to deallocation functions in the application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x08000000 { ro section .intvec };
+"P1":  place in [from 0x08000000 to 0x0801ffff] { ro };
+define block CSTACK with size = 2K, alignment = 8 { };
+define block HEAP with size = 512, alignment = 8 { };
+"P2":  place in [from 0x20000000 to 0x20004fff] {
+          rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0xec
+  .intvec            ro code  0x08000000    0xec  startup_stm32f103xb.o [1]
+                            - 0x080000ec    0xec
+
+"P1":                                     0x96c0
+  .text              ro code  0x080000ec  0x3380  TPS_1_API.o [1]
+  .text              ro code  0x0800346c    0x36  strlen.o [5]
+  .text              ro code  0x080034a2    0x1e  xencoding_8859_1.o [3]
+  .text              ro code  0x080034c0   0x5aa  SPI1_Master.o [1]
+  .rodata            const    0x08003a6a     0x2  stm32f1xx_hal_rcc.o [1]
+  .text              ro code  0x08003a6c    0x66  ABImemset.o [5]
+  .text              ro code  0x08003ad4     0x6  ABImemclr4.o [5]
+  .text              ro code  0x08003adc    0xa6  ABImemcpy.o [5]
+  .text              ro code  0x08003b84   0x288  stm32f1xx_hal_gpio.o [1]
+  .text              ro code  0x08003e0c    0x32  ABImemset48.o [5]
+  .text              ro code  0x08003e40  0x1514  dlmalloc.o [3]
+  .text              ro code  0x08005354     0x6  abort.o [3]
+  .text              ro code  0x0800535c    0x2c  xgetmemchunk.o [3]
+  .text              ro code  0x08005388     0x6  ABImemclr.o [5]
+  .text              ro code  0x08005390    0x14  exit.o [6]
+  .text              ro code  0x080053a4   0xf96  xprintffull.o [3]
+  .text              ro code  0x0800633c    0x74  xlocale_c.o [3]
+  .text              ro code  0x080063b0    0x16  strchr.o [5]
+  .text              ro code  0x080063c8    0x40  xfail_s.o [3]
+  .text              ro code  0x08006408    0x58  memchr.o [5]
+  .text              ro code  0x08006460     0xa  xmbcurmax.o [3]
+  .text              ro code  0x0800646c   0x22e  I64DivMod.o [5]
+  .text              ro code  0x0800669c   0x1a2  DblMul.o [4]
+  .text              ro code  0x08006840    0x70  frexp.o [4]
+  .text              ro code  0x080068b0    0x2e  DblCmpLe.o [4]
+  .text              ro code  0x080068e0    0x2e  DblCmpGe.o [4]
+  .text              ro code  0x08006910   0x13a  ldexp.o [4]
+  .text              ro code  0x08006a4c    0x3a  DblToS32.o [4]
+  .text              ro code  0x08006a88    0x22  S32ToDbl.o [4]
+  .text              ro code  0x08006aac    0xe2  DblSub.o [4]
+  .text              ro code  0x08006b90   0x246  DblDiv.o [4]
+  .text              ro code  0x08006dd8    0x28  DblToU32.o [4]
+  .text              ro code  0x08006e00    0x1a  U32ToDbl.o [4]
+  .text              ro code  0x08006e1c     0x2  I64DivZer.o [5]
+  .text              ro code  0x08006e20   0x168  DblAdd.o [4]
+  .text              ro code  0x08006f88   0xc04  TPSDriver.o [1]
+  .text              ro code  0x08007b8c    0x28  printf.o [3]
+  .text              ro code  0x08007bb4    0x28  stm32f1xx_hal.o [1]
+  .text              ro code  0x08007bdc     0x4  heaptramp0.o [3]
+  .text              ro code  0x08007be0     0xc  stm32f1xx_hal.o [1]
+  .text              ro code  0x08007bec   0x6f0  stm32f1xx_hal_rcc.o [1]
+  .text              ro code  0x080082dc    0x4c  stm32f1xx_hal.o [1]
+  .text              ro code  0x08008328   0x14e  stm32f1xx_hal_cortex.o [1]
+  .text              ro code  0x08008478   0x35c  stm32f1xx_hal_uart.o [1]
+  .text              ro code  0x080087d4   0x158  stm32f1xx_hal_msp.o [1]
+  .text              ro code  0x0800892c   0x2f6  main.o [1]
+  .text              ro code  0x08008c24    0x28  stm32f1xx_hal.o [1]
+  .text              ro code  0x08008c4c    0x8a  stm32f1xx_hal_spi_ex.o [1]
+  .rodata            const    0x08008cd8    0x88  TPSDriver.o [1]
+  .rodata            const    0x08008d60    0x88  TPSDriver.o [1]
+  .rodata            const    0x08008de8    0x74  TPSDriver.o [1]
+  .rodata            const    0x08008e5c    0x68  TPSDriver.o [1]
+  .text              ro code  0x08008ec4    0x68  system_stm32f1xx.o [1]
+  .rodata            const    0x08008f2c    0x48  TPSDriver.o [1]
+  .rodata            const    0x08008f74    0x44  TPSDriver.o [1]
+  .rodata            const    0x08008fb8    0x40  TPSDriver.o [1]
+  .text              ro code  0x08008ff8    0x40  zero_init3.o [5]
+  .rodata            const    0x08009038    0x3c  TPSDriver.o [1]
+  .rodata            const    0x08009074    0x38  TPSDriver.o [1]
+  .rodata            const    0x080090ac    0x38  TPSDriver.o [1]
+  .rodata            const    0x080090e4    0x38  TPSDriver.o [1]
+  .text              ro code  0x0800911c    0x38  packbits_init_single.o [5]
+  .rodata            const    0x08009154    0x34  TPSDriver.o [1]
+  .rodata            const    0x08009188    0x34  TPSDriver.o [1]
+  .rodata            const    0x080091bc    0x30  TPSDriver.o [1]
+  .rodata            const    0x080091ec    0x30  TPSDriver.o [1]
+  .rodata            const    0x0800921c    0x30  TPSDriver.o [1]
+  .rodata            const    0x0800924c    0x30  TPSDriver.o [1]
+  .rodata            const    0x0800927c    0x2c  TPSDriver.o [1]
+  .rodata            const    0x080092a8    0x2c  TPSDriver.o [1]
+  .rodata            const    0x080092d4    0x2c  TPSDriver.o [1]
+  .rodata            const    0x08009300    0x2c  TPSDriver.o [1]
+  .rodata            const    0x0800932c    0x28  TPSDriver.o [1]
+  .text              ro code  0x08009354    0x28  data_init.o [5]
+  .rodata            const    0x0800937c    0x24  TPSDriver.o [1]
+  .rodata            const    0x080093a0    0x24  TPSDriver.o [1]
+  .rodata            const    0x080093c4    0x24  TPSDriver.o [1]
+  .iar.init_table    const    0x080093e8    0x20  - Linker created -
+  .rodata            const    0x08009408    0x20  TPSDriver.o [1]
+  .rodata            const    0x08009428    0x20  TPSDriver.o [1]
+  .rodata            const    0x08009448    0x20  TPSDriver.o [1]
+  .text              ro code  0x08009468    0x1e  cmain.o [5]
+  .text              ro code  0x08009486     0x4  low_level_init.o [3]
+  .text              ro code  0x0800948a     0x4  exit.o [3]
+  .text              ro code  0x08009490     0xa  cexit.o [5]
+  .rodata            const    0x0800949c    0x1c  main.o [1]
+  .rodata            const    0x080094b8    0x1c  TPSDriver.o [1]
+  .rodata            const    0x080094d4    0x1c  TPSDriver.o [1]
+  .rodata            const    0x080094f0    0x1c  TPSDriver.o [1]
+  .rodata            const    0x0800950c    0x1c  TPSDriver.o [1]
+  .rodata            const    0x08009528    0x1c  TPSDriver.o [1]
+  .text              ro code  0x08009544    0x1c  stm32f1xx_it.o [1]
+  .text              ro code  0x08009560    0x18  stm32f1xx_hal.o [1]
+  .rodata            const    0x08009578    0x18  main.o [1]
+  .rodata            const    0x08009590    0x18  main.o [1]
+  .text              ro code  0x080095a8    0x16  xprout.o [3]
+  .text              ro code  0x080095c0     0xc  putchar.o [3]
+  .rodata            const    0x080095cc    0x10  stm32f1xx_hal_rcc.o [1]
+  .rodata            const    0x080095dc    0x10  system_stm32f1xx.o [1]
+  .rodata            const    0x080095ec    0x10  TPSDriver.o [1]
+  .rodata            const    0x080095fc    0x10  TPSDriver.o [1]
+  .text              ro code  0x0800960c    0x10  startup_stm32f103xb.o [1]
+  .rodata            const    0x0800961c     0xc  TPSDriver.o [1]
+  .text              ro code  0x08009628     0xc  cstartup_M.o [5]
+  .rodata            const    0x08009634     0x8  SPI1_Master.o [1]
+  .rodata            const    0x0800963c     0x8  SPI1_Master.o [1]
+  .rodata            const    0x08009644     0x8  SPI1_Master.o [1]
+  .rodata            const    0x0800964c     0x8  SPI1_Master.o [1]
+  .rodata            const    0x08009654     0x8  SPI1_Master.o [1]
+  .rodata            const    0x0800965c     0x8  system_stm32f1xx.o [1]
+  .rodata            const    0x08009664     0x8  TPSDriver.o [1]
+  .rodata            const    0x0800966c     0x6  xlocale_c.o [3]
+  .rodata            const    0x08009674     0x4  SPI1_Master.o [1]
+  .rodata            const    0x08009678     0x4  SPI1_Master.o [1]
+  .rodata            const    0x0800967c     0x4  TPSDriver.o [1]
+  .text              ro code  0x08009680     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009684     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009688     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x0800968c     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009690     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009694     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009698     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x0800969c     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096a0     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096a4     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096a8     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096ac     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096b0     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096b4     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096b8     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096bc     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096c0     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096c4     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096c8     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096cc     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096d0     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096d4     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096d8     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096dc     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096e0     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096e4     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096e8     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096ec     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096f0     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096f4     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096f8     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x080096fc     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009700     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009704     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009708     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x0800970c     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009710     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009714     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009718     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x0800971c     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009720     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009724     0x4  startup_stm32f103xb.o [1]
+  .text              ro code  0x08009728     0x4  startup_stm32f103xb.o [1]
+  .rodata            const    0x0800972c     0x0  zero_init3.o [5]
+  .rodata            const    0x0800972c     0x0  packbits_init_single.o [5]
+  Initializer bytes  const    0x0800972c    0x80  <for P2-1>
+                            - 0x080097ac  0x96c0
+
+"P2", part 1 of 3:                          0xd1
+  P2-1                        0x20000000    0xd1  <Init block>
+    .data            inited   0x20000000     0x4  stm32f1xx_hal.o [1]
+    .data            inited   0x20000004     0x4  system_stm32f1xx.o [1]
+    .data            inited   0x20000008    0x38  xlocale_c.o [3]
+    .data            inited   0x20000040    0x48  xlocale_c.o [3]
+    .data            inited   0x20000088    0x48  xfiles.o [3]
+    .data            inited   0x200000d0     0x1  stm32f1xx_hal.o [1]
+                            - 0x200000d1    0xd1
+
+"P2", part 2 of 3:                        0x1c80
+  .bss               zero     0x200000d4   0x5f8  SPI1_Master.o [1]
+  .bss               zero     0x200006cc   0x5f8  SPI1_Master.o [1]
+  .bss               zero     0x20000cc4   0x580  TPS_1_API.o [1]
+  .bss               zero     0x20001244   0x400  TPS_1_API.o [1]
+  .bss               zero     0x20001644   0x1d8  dlmalloc.o [3]
+  .bss               zero     0x2000181c   0x180  TPSDriver.o [1]
+  .bss               zero     0x2000199c    0xf0  TPS_1_API.o [1]
+  .bss               zero     0x20001a8c    0xa0  TPS_1_API.o [1]
+  .bss               zero     0x20001b2c    0x88  TPS_1_API.o [1]
+  .bss               zero     0x20001bb4    0x58  main.o [1]
+  .bss               zero     0x20001c0c    0x50  xfiles.o [3]
+  .bss               zero     0x20001c5c    0x40  main.o [1]
+  .bss               zero     0x20001c9c    0x1c  TPS_1_API.o [1]
+  .bss               zero     0x20001cb8    0x18  TPS_1_API.o [1]
+  .bss               zero     0x20001cd0    0x18  dlmalloc.o [3]
+  .bss               zero     0x20001ce8     0x8  TPS_1_API.o [1]
+  .bss               zero     0x20001cf0     0x4  stm32f1xx_hal.o [1]
+  .bss               zero     0x20001cf4     0x4  TPS_1_API.o [1]
+  .bss               zero     0x20001cf8     0x4  TPS_1_API.o [1]
+  .bss               zero     0x20001cfc     0x4  TPS_1_API.o [1]
+  .bss               zero     0x20001d00     0x4  TPS_1_API.o [1]
+  .bss               zero     0x20001d04     0x4  TPS_1_API.o [1]
+  .bss               zero     0x20001d08     0x4  TPS_1_API.o [1]
+  .bss               zero     0x20001d0c     0x4  TPS_1_API.o [1]
+  .bss               zero     0x20001d10     0x4  TPS_1_API.o [1]
+  .bss               zero     0x20001d14     0x4  TPS_1_API.o [1]
+  .bss               zero     0x20001d18     0x4  TPS_1_API.o [1]
+  .bss               zero     0x20001d1c     0x4  TPSDriver.o [1]
+  .bss               zero     0x20001d20     0x4  TPSDriver.o [1]
+  .bss               zero     0x20001d24     0x4  TPSDriver.o [1]
+  .bss               zero     0x20001d28     0x4  TPSDriver.o [1]
+  .bss               zero     0x20001d2c     0x4  TPSDriver.o [1]
+  .bss               zero     0x20001d30     0x4  TPSDriver.o [1]
+  .bss               zero     0x20001d34     0x4  TPSDriver.o [1]
+  .bss               zero     0x20001d38     0x4  TPSDriver.o [1]
+  .bss               zero     0x20001d3c     0x4  TPSDriver.o [1]
+  .bss               zero     0x20001d40     0x4  TPSDriver.o [1]
+  .bss               zero     0x20001d44     0x4  xgetmemchunk.o [3]
+  .bss               zero     0x20001d48     0x4  xfail_s.o [3]
+  .bss               zero     0x20001d4c     0x2  TPS_1_API.o [1]
+  .bss               zero     0x20001d4e     0x2  TPS_1_API.o [1]
+  .bss               zero     0x20001d50     0x2  TPS_1_API.o [1]
+  .bss               zero     0x20001d52     0x1  TPS_1_API.o [1]
+                            - 0x20001d53  0x1c7f
+
+"P2", part 3 of 3:                         0xa00
+  CSTACK                      0x20001d58   0x800  <Block>
+    CSTACK           uninit   0x20001d58   0x800  <Block tail>
+  HEAP                        0x20002558   0x200  <Block>
+    HEAP             uninit   0x20002558   0x200  <Block tail>
+                            - 0x20002758   0xa00
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x1c7f:
+          0x200000d4  0x1c7f
+
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0x80 (61% of destination):
+          0x0800972c    0x80
+    1 destination range, total size 0xd1:
+          0x20000000    0xd1
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+D:\stm_pn\EWARM\stm_pn\Obj: [1]
+    SPI1_Master.o             1 450       48    3 056
+    TPSDriver.o               3 076    1 836      424
+    TPS_1_API.o              13 184             3 075
+    main.o                      758       76      152
+    startup_stm32f103xb.o       424
+    stm32f1xx_hal.o             192        3        9
+    stm32f1xx_hal_cortex.o      334
+    stm32f1xx_hal_gpio.o        648
+    stm32f1xx_hal_msp.o         344
+    stm32f1xx_hal_rcc.o       1 776       18
+    stm32f1xx_hal_spi_ex.o      138
+    stm32f1xx_hal_uart.o        860
+    stm32f1xx_it.o               28
+    system_stm32f1xx.o          104       26        4
+    -------------------------------------------------
+    Total:                   23 316    2 007    6 720
+
+command line: [2]
+    -------------------------------------------------
+    Total:
+
+dl7M_tlf.a: [3]
+    abort.o                       6
+    dlmalloc.o                5 396               496
+    exit.o                        4
+    heaptramp0.o                  4
+    low_level_init.o              4
+    printf.o                     40
+    putchar.o                    12
+    xencoding_8859_1.o           30
+    xfail_s.o                    64                 4
+    xfiles.o                              44      152
+    xgetmemchunk.o               44                 4
+    xlocale_c.o                 116       85      128
+    xmbcurmax.o                  10
+    xprintffull.o             3 990
+    xprout.o                     22
+    -------------------------------------------------
+    Total:                    9 742      129      784
+
+m7M_tl.a: [4]
+    DblAdd.o                    360
+    DblCmpGe.o                   46
+    DblCmpLe.o                   46
+    DblDiv.o                    582
+    DblMul.o                    418
+    DblSub.o                    226
+    DblToS32.o                   58
+    DblToU32.o                   40
+    S32ToDbl.o                   34
+    U32ToDbl.o                   26
+    frexp.o                     112
+    ldexp.o                     314
+    -------------------------------------------------
+    Total:                    2 262
+
+rt7M_tl.a: [5]
+    ABImemclr.o                   6
+    ABImemclr4.o                  6
+    ABImemcpy.o                 166
+    ABImemset.o                 102
+    ABImemset48.o                50
+    I64DivMod.o                 558
+    I64DivZer.o                   2
+    cexit.o                      10
+    cmain.o                      30
+    cstartup_M.o                 12
+    data_init.o                  40
+    memchr.o                     88
+    packbits_init_single.o       56
+    strchr.o                     22
+    strlen.o                     54
+    zero_init3.o                 64
+    -------------------------------------------------
+    Total:                    1 266
+
+shb_l.a: [6]
+    exit.o                       20
+    -------------------------------------------------
+    Total:                       20
+
+    Gaps                         48        6
+    Linker created                        32    2 560
+-----------------------------------------------------
+    Grand Total:             36 654    2 174   10 064
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x080093e8          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x08009408          --   Gb  - Linker created -
+?main                   0x08009469         Code  Gb  cmain.o [5]
+AHBPrescTable           0x080095dc   0x10  Data  Gb  system_stm32f1xx.o [1]
+APBPrescTable           0x0800965c    0x8  Data  Gb  system_stm32f1xx.o [1]
+APP_AddDevice           0x0800020b  0x454  Code  Lc  TPS_1_API.o [1]
+AppClearTypeOfStation   0x08002193   0x24  Code  Lc  TPS_1_API.o [1]
+AppCreateAlarmMailBox   0x08002845  0x132  Code  Lc  TPS_1_API.o [1]
+AppFactoryResetForIM1_4
+                        0x08002f01  0x100  Code  Lc  TPS_1_API.o [1]
+AppGetSlotHandle        0x08002757   0x6c  Code  Lc  TPS_1_API.o [1]
+AppGetSlotInfoFromHandle
+                        0x080026f9   0x5e  Code  Lc  TPS_1_API.o [1]
+AppGetSubslotHandle     0x080027c9   0x6e  Code  Lc  TPS_1_API.o [1]
+AppOnAbort              0x080022c7   0x22  Code  Lc  TPS_1_API.o [1]
+AppOnAlarmAck           0x08002545   0x94  Code  Lc  TPS_1_API.o [1]
+AppOnConnect            0x080021ff   0x20  Code  Lc  TPS_1_API.o [1]
+AppOnConnect_Done       0x08002249   0x22  Code  Lc  TPS_1_API.o [1]
+AppOnDiagAckn           0x080025d9   0x20  Code  Lc  TPS_1_API.o [1]
+AppOnFSUParameterChange
+                        0x08002643    0x2  Code  Lc  TPS_1_API.o [1]
+AppOnIMDataChanged      0x080026d9   0x20  Code  Lc  TPS_1_API.o [1]
+AppOnPRMENDDone         0x0800226b   0x28  Code  Lc  TPS_1_API.o [1]
+AppOnReadRecord         0x080022e9  0x12c  Code  Lc  TPS_1_API.o [1]
+AppOnResetFactorySettings
+                        0x08002677   0x46  Code  Lc  TPS_1_API.o [1]
+AppOnSetStationDcpSignal
+                        0x08002661   0x16  Code  Lc  TPS_1_API.o [1]
+AppOnSetStationIpAddr   0x08002645   0x1c  Code  Lc  TPS_1_API.o [1]
+AppOnSetStationName     0x08002613   0x30  Code  Lc  TPS_1_API.o [1]
+AppOnTPSLedChanged      0x080026bd   0x1c  Code  Lc  TPS_1_API.o [1]
+AppOnTPSMessageReceive  0x080025f9    0x2  Code  Lc  TPS_1_API.o [1]
+AppOnTPSReset           0x080025fb   0x18  Code  Lc  TPS_1_API.o [1]
+AppOnWriteRecord        0x08002415  0x130  Code  Lc  TPS_1_API.o [1]
+AppReadIM0              0x0800298d  0x1cc  Code  Lc  TPS_1_API.o [1]
+AppReadIM1              0x08002b59   0x7c  Code  Lc  TPS_1_API.o [1]
+AppReadIM2              0x08002bd5   0x60  Code  Lc  TPS_1_API.o [1]
+AppReadIM3              0x08002c35   0x60  Code  Lc  TPS_1_API.o [1]
+AppReadIM4              0x08002c95   0x60  Code  Lc  TPS_1_API.o [1]
+AppReadIMData           0x08002cf5   0xe0  Code  Lc  TPS_1_API.o [1]
+AppReadRecordDataObject
+                        0x08003005  0x40c  Code  Lc  TPS_1_API.o [1]
+AppSetArEstablished     0x080021d9   0x26  Code  Gb  TPS_1_API.o [1]
+AppSetEventAppRdy       0x08002293   0x34  Code  Lc  TPS_1_API.o [1]
+AppSetEventOnConnectOK  0x0800221f   0x2a  Code  Lc  TPS_1_API.o [1]
+AppSetEventRegApp       0x080021b7   0x22  Code  Lc  TPS_1_API.o [1]
+AppSetEventRegAppAckn   0x08002171   0x22  Code  Lc  TPS_1_API.o [1]
+AppSetLastError         0x08002837    0x8  Code  Lc  TPS_1_API.o [1]
+AppWriteIMData          0x08002dd5  0x12c  Code  Lc  TPS_1_API.o [1]
+App_GetAPDUOffsetForAR  0x08003411   0x40  Code  Gb  TPS_1_API.o [1]
+BusFault_Handler        0x0800954b    0x2  Code  Gb  stm32f1xx_it.o [1]
+CSTACK$$Base            0x20001d58          --   Gb  - Linker created -
+CSTACK$$Limit           0x20002558          --   Gb  - Linker created -
+CacheMore               0x08006341   0x24  Code  Lc  xlocale_c.o [3]
+DebugMon_Handler        0x08009551    0x2  Code  Gb  stm32f1xx_it.o [1]
+HAL_Delay               0x08007bb5   0x28  Code  Wk  stm32f1xx_hal.o [1]
+HAL_GPIO_Init           0x08003b85  0x22e  Code  Gb  stm32f1xx_hal_gpio.o [1]
+HAL_GPIO_WritePin       0x08003db3   0x1a  Code  Gb  stm32f1xx_hal_gpio.o [1]
+HAL_GetTick             0x08007be1    0xc  Code  Wk  stm32f1xx_hal.o [1]
+HAL_IncTick             0x08009561   0x18  Code  Wk  stm32f1xx_hal.o [1]
+HAL_Init                0x08008c25   0x22  Code  Gb  stm32f1xx_hal.o [1]
+HAL_InitTick            0x080082dd   0x4c  Code  Wk  stm32f1xx_hal.o [1]
+HAL_MspInit             0x080087d5   0x86  Code  Gb  stm32f1xx_hal_msp.o [1]
+HAL_NVIC_SetPriority    0x080083f9   0x2a  Code  Gb  stm32f1xx_hal_cortex.o [1]
+HAL_NVIC_SetPriorityGrouping
+                        0x080083ed    0xc  Code  Gb  stm32f1xx_hal_cortex.o [1]
+HAL_RCC_ClockConfig     0x08008043  0x188  Code  Gb  stm32f1xx_hal_rcc.o [1]
+HAL_RCC_GetHCLKFreq     0x0800823d    0x6  Code  Gb  stm32f1xx_hal_rcc.o [1]
+HAL_RCC_GetPCLK1Freq    0x08008243   0x16  Code  Gb  stm32f1xx_hal_rcc.o [1]
+HAL_RCC_GetPCLK2Freq    0x08008259   0x16  Code  Gb  stm32f1xx_hal_rcc.o [1]
+HAL_RCC_GetSysClockFreq
+                        0x080081cb   0x72  Code  Gb  stm32f1xx_hal_rcc.o [1]
+HAL_RCC_OscConfig       0x08007bed  0x456  Code  Gb  stm32f1xx_hal_rcc.o [1]
+HAL_SPI_Init            0x08008c4d   0x8a  Code  Gb  stm32f1xx_hal_spi_ex.o [1]
+HAL_SPI_MspInit         0x0800885b   0x62  Code  Gb  stm32f1xx_hal_msp.o [1]
+HAL_SYSTICK_CLKSourceConfig
+                        0x0800842f   0x20  Code  Gb  stm32f1xx_hal_cortex.o [1]
+HAL_SYSTICK_Config      0x08008423    0xc  Code  Gb  stm32f1xx_hal_cortex.o [1]
+HAL_SYSTICK_IRQHandler  0x0800846d    0x8  Code  Gb  stm32f1xx_hal_cortex.o [1]
+HAL_UART_Init           0x08008479   0x76  Code  Gb  stm32f1xx_hal_uart.o [1]
+HAL_UART_MspInit        0x080088bd   0x56  Code  Gb  stm32f1xx_hal_msp.o [1]
+HAL_UART_Transmit       0x080084ef   0xe0  Code  Gb  stm32f1xx_hal_uart.o [1]
+HEAP$$Base              0x20002558          --   Gb  - Linker created -
+HEAP$$Limit             0x20002758          --   Gb  - Linker created -
+HardFault_Handler       0x08009547    0x2  Code  Gb  stm32f1xx_it.o [1]
+LoadInt                 0x08005593   0x7a  Code  Lc  xprintffull.o [3]
+MX_GPIO_Init            0x08008af9   0xf0  Code  Lc  main.o [1]
+MX_SPI1_Init            0x08008a4f   0x62  Code  Lc  main.o [1]
+MX_USART3_UART_Init     0x08008ab1   0x48  Code  Lc  main.o [1]
+MemManage_Handler       0x08009549    0x2  Code  Gb  stm32f1xx_it.o [1]
+NMI_Handler             0x08009545    0x2  Code  Gb  stm32f1xx_it.o [1]
+NVIC_EncodePriority     0x0800837b   0x42  Code  Lc  stm32f1xx_hal_cortex.o [1]
+NVIC_GetPriorityGrouping
+                        0x08008345    0xa  Code  Lc  stm32f1xx_hal_cortex.o [1]
+NVIC_SetPriority        0x0800834f   0x2c  Code  Lc  stm32f1xx_hal_cortex.o [1]
+NVIC_SetPriorityGrouping
+                        0x08008329   0x1c  Code  Lc  stm32f1xx_hal_cortex.o [1]
+PendSV_Handler          0x08009553    0x2  Code  Gb  stm32f1xx_it.o [1]
+RCC_Delay               0x0800826f   0x26  Code  Lc  stm32f1xx_hal_rcc.o [1]
+Region$$Table$$Base     0x080093e8          --   Gb  - Linker created -
+Region$$Table$$Limit    0x08009408          --   Gb  - Linker created -
+SVC_Handler             0x0800954f    0x2  Code  Gb  stm32f1xx_it.o [1]
+StartTPS1               0x08007215  0x1c6  Code  Gb  TPSDriver.o [1]
+SysTick_Config          0x080083bd   0x30  Code  Lc  stm32f1xx_hal_cortex.o [1]
+SysTick_Handler         0x08009555    0xc  Code  Gb  stm32f1xx_it.o [1]
+SystemClock_Config      0x080089cf   0x80  Code  Gb  main.o [1]
+SystemCoreClock         0x20000004    0x4  Data  Gb  system_stm32f1xx.o [1]
+SystemInit              0x08008ec5   0x4e  Code  Gb  system_stm32f1xx.o [1]
+TPS1_GPIO_Init          0x08008949   0x60  Code  Gb  main.o [1]
+TPS_AddAPI              0x0800065f  0x10e  Code  Gb  TPS_1_API.o [1]
+TPS_AddDevice           0x080001eb   0x20  Code  Gb  TPS_1_API.o [1]
+TPS_CheckEvents         0x08001411  0x1e2  Code  Gb  TPS_1_API.o [1]
+TPS_CheckStackStart     0x08001609   0x48  Code  Gb  TPS_1_API.o [1]
+TPS_GetArEstablished    0x080017d3   0x28  Code  Gb  TPS_1_API.o [1]
+TPS_GetIOAddress        0x080037ed   0x68  Code  Gb  SPI1_Master.o [1]
+TPS_GetIPConfig         0x080012fb   0x4e  Code  Gb  TPS_1_API.o [1]
+TPS_GetLastError        0x080015f3    0x8  Code  Gb  TPS_1_API.o [1]
+TPS_GetLedState         0x08001f73   0x1e  Code  Gb  TPS_1_API.o [1]
+TPS_GetMailboxInfo      0x08001def  0x184  Code  Gb  TPS_1_API.o [1]
+TPS_GetModuleConfiguration
+                        0x08001fc3   0x30  Code  Gb  TPS_1_API.o [1]
+TPS_GetOrderId          0x08001381   0x30  Code  Gb  TPS_1_API.o [1]
+TPS_GetSerialnumber     0x08001349   0x30  Code  Gb  TPS_1_API.o [1]
+TPS_GetSubmoduleConfiguration
+                        0x08001ff9   0x4c  Code  Gb  TPS_1_API.o [1]
+TPS_GetValue16          0x0800372b   0x5a  Code  Gb  SPI1_Master.o [1]
+TPS_GetValue32          0x08003785   0x68  Code  Gb  SPI1_Master.o [1]
+TPS_GetValue8           0x080036d5   0x56  Code  Gb  SPI1_Master.o [1]
+TPS_GetValueData        0x08003855   0x9c  Code  Gb  SPI1_Master.o [1]
+TPS_InitApplicationInterface
+                        0x08000191   0x5a  Code  Gb  TPS_1_API.o [1]
+TPS_MemSet              0x08003a1d   0x4e  Code  Gb  SPI1_Master.o [1]
+TPS_PlugModule          0x080007d3  0x16a  Code  Gb  TPS_1_API.o [1]
+TPS_PlugSubmodule       0x08000981  0x8ae  Code  Gb  TPS_1_API.o [1]
+TPS_ReadMailboxData     0x08001b1b   0xc6  Code  Gb  TPS_1_API.o [1]
+TPS_ReadOutputData      0x080017fb   0x9e  Code  Gb  TPS_1_API.o [1]
+TPS_RecordReadDone      0x08001d5b   0x94  Code  Gb  TPS_1_API.o [1]
+TPS_RecordWriteDone     0x08001be1   0xa0  Code  Gb  TPS_1_API.o [1]
+TPS_RegisterAlarmDiagCallback
+                        0x080016e7   0x36  Code  Gb  TPS_1_API.o [1]
+TPS_RegisterDcpCallback
+                        0x08001775   0x46  Code  Gb  TPS_1_API.o [1]
+TPS_RegisterDcpCallbackPara
+                        0x0800171d   0x52  Code  Gb  TPS_1_API.o [1]
+TPS_RegisterIMDataCallback
+                        0x08001fad   0x16  Code  Gb  TPS_1_API.o [1]
+TPS_RegisterIMDataForSubslot
+                        0x08001235   0xc6  Code  Gb  TPS_1_API.o [1]
+TPS_RegisterLedStateCallback
+                        0x08001f91   0x16  Code  Gb  TPS_1_API.o [1]
+TPS_RegisterRecordDataObjectCallback
+                        0x080017bb   0x18  Code  Gb  TPS_1_API.o [1]
+TPS_RegisterRpcCallback
+                        0x08001651   0x96  Code  Gb  TPS_1_API.o [1]
+TPS_SPI_ReadData        0x080038f1   0x74  Code  Gb  SPI1_Master.o [1]
+TPS_SPI_WriteData       0x08003965   0x88  Code  Gb  SPI1_Master.o [1]
+TPS_SetInputIops        0x08001aad   0x6e  Code  Gb  TPS_1_API.o [1]
+TPS_SetModuleState      0x08002049   0x7a  Code  Gb  TPS_1_API.o [1]
+TPS_SetOrderId          0x080013b1   0x56  Code  Gb  TPS_1_API.o [1]
+TPS_SetOutputIocs       0x08001a3f   0x6e  Code  Gb  TPS_1_API.o [1]
+TPS_SetSubmoduleState   0x080020c3   0xac  Code  Gb  TPS_1_API.o [1]
+TPS_SetValue16          0x08003545   0x6c  Code  Gb  SPI1_Master.o [1]
+TPS_SetValue32          0x080035b1   0x6c  Code  Gb  SPI1_Master.o [1]
+TPS_SetValue8           0x080034c1   0x84  Code  Gb  SPI1_Master.o [1]
+TPS_SetValueData        0x0800361d   0xb8  Code  Gb  SPI1_Master.o [1]
+TPS_StartDevice         0x0800076d   0x66  Code  Gb  TPS_1_API.o [1]
+TPS_UpdateInputData     0x080019f3   0x4c  Code  Gb  TPS_1_API.o [1]
+TPS_UpdateOutputData    0x08001899   0x4c  Code  Gb  TPS_1_API.o [1]
+TPS_WriteInputData      0x080018f1  0x102  Code  Gb  TPS_1_API.o [1]
+TPS_WriteMailboxData    0x08001c85   0xd6  Code  Gb  TPS_1_API.o [1]
+UART_SetConfig          0x0800863d  0x190  Code  Lc  stm32f1xx_hal_uart.o [1]
+UART_WaitOnFlagUntilTimeout
+                        0x080085cf   0x6e  Code  Lc  stm32f1xx_hal_uart.o [1]
+UsageFault_Handler      0x0800954d    0x2  Code  Gb  stm32f1xx_it.o [1]
+_Encoding_8859_1_Mbrlen
+                        0x080034b5    0x2  Code  Gb  xencoding_8859_1.o [3]
+_Encoding_8859_1_Wctomb
+                        0x080034a3   0x12  Code  Gb  xencoding_8859_1.o [3]
+_Error_Handler          0x08008c21    0x2  Code  Gb  main.o [1]
+_GenldFull              0x08006015  0x274  Code  Lc  xprintffull.o [3]
+_LdtobFull              0x08005be9  0x3fe  Code  Lc  xprintffull.o [3]
+_LitobFull              0x08005a91  0x112  Code  Lc  xprintffull.o [3]
+_Locale_lconv           0x20000008   0x38  Data  Lc  xlocale_c.o [3]
+_PrintfFull             0x080053a5  0x1d6  Code  Gb  xprintffull.o [3]
+_Prout                  0x080095a9   0x16  Code  Gb  xprout.o [3]
+_PutcharsFull           0x08006289   0x2e  Code  Lc  xprintffull.o [3]
+_PutfldFull             0x0800560d  0x2d0  Code  Lc  xprintffull.o [3]
+_PutstrFull             0x080059d3   0xbe  Code  Lc  xprintffull.o [3]
+_PuttxtFull             0x080058dd   0xf6  Code  Lc  xprintffull.o [3]
+__aeabi_cdcmple         0x080068b1         Code  Gb  DblCmpLe.o [4]
+__aeabi_cdrcmple        0x080068e1         Code  Gb  DblCmpGe.o [4]
+__aeabi_d2iz            0x08006a4d         Code  Gb  DblToS32.o [4]
+__aeabi_d2uiz           0x08006dd9         Code  Gb  DblToU32.o [4]
+__aeabi_ddiv            0x08006b91         Code  Gb  DblDiv.o [4]
+__aeabi_dmul            0x0800669d         Code  Gb  DblMul.o [4]
+__aeabi_dsub            0x08006aad         Code  Gb  DblSub.o [4]
+__aeabi_i2d             0x08006a89         Code  Gb  S32ToDbl.o [4]
+__aeabi_ldiv0           0x08006e1d         Code  Gb  I64DivZer.o [5]
+__aeabi_memclr          0x08005389         Code  Gb  ABImemclr.o [5]
+__aeabi_memclr4         0x08003ad5         Code  Gb  ABImemclr4.o [5]
+__aeabi_memcpy          0x08003add         Code  Gb  ABImemcpy.o [5]
+__aeabi_memcpy4         0x08003afd         Code  Gb  ABImemcpy.o [5]
+__aeabi_memcpy8         0x08003afd         Code  Gb  ABImemcpy.o [5]
+__aeabi_memset          0x08003a6d         Code  Gb  ABImemset.o [5]
+__aeabi_ui2d            0x08006e01         Code  Gb  U32ToDbl.o [4]
+__aeabi_uldivmod        0x0800646d         Code  Gb  I64DivMod.o [5]
+__cmain                 0x08009469         Code  Gb  cmain.o [5]
+__data_GetMemChunk      0x0800535d   0x2c  Code  Gb  xgetmemchunk.o [3]
+__data_GetMemChunk::start
+                        0x20001d44    0x4  Data  Lc  xgetmemchunk.o [3]
+__exit                  0x08005391   0x14  Code  Gb  exit.o [6]
+__iar_Fail_s            0x080063c9   0x1c  Code  Gb  xfail_s.o [3]
+__iar_Mbcurmax          0x08006461    0xa  Code  Gb  xmbcurmax.o [3]
+__iar_Memchr            0x08006409         Code  Gb  memchr.o [5]
+__iar_Memset            0x08003a6d         Code  Gb  ABImemset.o [5]
+__iar_Memset4_word      0x08003e0d         Code  Gb  ABImemset48.o [5]
+__iar_Memset8_word      0x08003e0d         Code  Gb  ABImemset48.o [5]
+__iar_Memset_word       0x08003a75         Code  Gb  ABImemset.o [5]
+__iar_Stdout            0x20000088   0x48  Data  Gb  xfiles.o [3]
+__iar_Strchr            0x080063b1         Code  Gb  strchr.o [5]
+__iar_dadd              0x08006abd         Code  Gb  DblSub.o [4]
+__iar_data_init3        0x08009355   0x28  Code  Gb  data_init.o [5]
+__iar_dlcalloc          0x08005311   0x3e  Code  Gb  dlmalloc.o [3]
+__iar_dlfree            0x08004e1b  0x4f6  Code  Gb  dlmalloc.o [3]
+__iar_dlmalloc          0x08004b65  0x2b6  Code  Gb  dlmalloc.o [3]
+__iar_dsub              0x08006e21         Code  Gb  DblAdd.o [4]
+__iar_dsubStart         0x08006e33         Code  Gb  DblAdd.o [4]
+__iar_frexp             0x0800684d         Code  Gb  frexp.o [4]
+__iar_frexp64           0x08006841         Code  Gb  frexp.o [4]
+__iar_frexpl            0x0800684d         Code  Gb  frexp.o [4]
+__iar_globLocale        0x20000040   0x48  Data  Lc  xlocale_c.o [3]
+__iar_global_Locale     0x0800633d    0x4  Code  Gb  xlocale_c.o [3]
+__iar_ldexp64           0x08006911         Code  Gb  ldexp.o [4]
+__iar_packbits_init_single3
+                        0x0800911d   0x38  Code  Gb  packbits_init_single.o [5]
+__iar_program_start     0x08009629         Code  Gb  cstartup_M.o [5]
+__iar_scalbln64         0x08006911         Code  Gb  ldexp.o [4]
+__iar_scalbn64          0x08006911         Code  Gb  ldexp.o [4]
+__iar_systems$$module {Abs}
+                        0x00000001         Data  Gb  command line/config [2]
+__iar_zero_init3        0x08008ff9   0x40  Code  Gb  zero_init3.o [5]
+__low_level_init        0x08009487    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x08000000         Data  Gb  startup_stm32f103xb.o [1]
+_call_main              0x08009475         Code  Gb  cmain.o [5]
+_exit                   0x08009491         Code  Gb  cexit.o [5]
+_gLocale_mblen          0x0800639d    0x4  Code  Gb  xlocale_c.o [3]
+_gLocale_mblenInt       0x08006365   0x34  Code  Gb  xlocale_c.o [3]
+_gLocale_wctomb         0x080063a1    0x4  Code  Gb  xlocale_c.o [3]
+_gLocale_wctombInt      0x08006399    0x4  Code  Gb  xlocale_c.o [3]
+_gm_                    0x20001644  0x1d8  Data  Lc  dlmalloc.o [3]
+_main                   0x08009483         Code  Gb  cmain.o [5]
+abort                   0x08005355    0x6  Code  Gb  abort.o [3]
+add_segment             0x08004205  0x1f2  Code  Lc  dlmalloc.o [3]
+checkSendAlarmButton    0x080073db    0x2  Code  Gb  TPSDriver.o [1]
+checkSubslotOwnedByAr   0x080073dd   0x2c  Code  Gb  TPSDriver.o [1]
+configDevice            0x08006f89  0x1ee  Code  Gb  TPSDriver.o [1]
+exit                    0x0800948b    0x4  Code  Gb  exit.o [3]
+fputc                   0x0800892d   0x1c  Code  Gb  main.o [1]
+free                    0x08007bdd    0x4  Code  Gb  heaptramp0.o [3]
+frexp                   0x08006841         Code  Gb  frexp.o [4]
+frexpl                  0x08006841         Code  Gb  frexp.o [4]
+g_byApiState            0x20001d52    0x1  Data  Lc  TPS_1_API.o [1]
+g_byIOData              0x2000181c  0x180  Data  Lc  TPSDriver.o [1]
+g_byMEMDirect           0x200000d4  0x5f8  Data  Lc  SPI1_Master.o [1]
+g_byRxTxBuffer          0x200006cc  0x5f8  Data  Lc  SPI1_Master.o [1]
+g_byTransmitBuffer      0x20001244  0x400  Data  Lc  TPS_1_API.o [1]
+g_dwArEstablished_0     0x20001d0c    0x4  Data  Lc  TPS_1_API.o [1]
+g_dwArEstablished_1     0x20001d10    0x4  Data  Lc  TPS_1_API.o [1]
+g_dwArEstablished_IOSR  0x20001d14    0x4  Data  Lc  TPS_1_API.o [1]
+g_dwConfigNRTMemSize    0x20001cfc    0x4  Data  Lc  TPS_1_API.o [1]
+g_dwLastErrorCode       0x20001cf4    0x4  Data  Lc  TPS_1_API.o [1]
+g_pIM0_Data             0x20001d30    0x4  Data  Lc  TPSDriver.o [1]
+g_pIM1_Data             0x20001d34    0x4  Data  Lc  TPSDriver.o [1]
+g_pIM2_Data             0x20001d38    0x4  Data  Lc  TPSDriver.o [1]
+g_pIM3_Data             0x20001d3c    0x4  Data  Lc  TPSDriver.o [1]
+g_pIM4_Data             0x20001d40    0x4  Data  Lc  TPSDriver.o [1]
+g_pbyApduAddr           0x20001ce8    0x8  Data  Lc  TPS_1_API.o [1]
+g_pbyConfigNRTMem       0x20001cf8    0x4  Data  Lc  TPS_1_API.o [1]
+g_pbyCurrentPointer     0x20001d00    0x4  Data  Lc  TPS_1_API.o [1]
+g_pwNumberOfApis        0x20001d04    0x4  Data  Lc  TPS_1_API.o [1]
+g_pwNumberOfSlots       0x20001d08    0x4  Data  Lc  TPS_1_API.o [1]
+g_pzModule_0            0x20001d1c    0x4  Data  Lc  TPSDriver.o [1]
+g_pzModule_1            0x20001d20    0x4  Data  Lc  TPSDriver.o [1]
+g_pzNrtConfigHeader     0x20001d18    0x4  Data  Lc  TPS_1_API.o [1]
+g_pzSubmodule_01        0x20001d24    0x4  Data  Lc  TPSDriver.o [1]
+g_pzSubmodule_11        0x20001d28    0x4  Data  Lc  TPSDriver.o [1]
+g_pzSubmodule_12        0x20001d2c    0x4  Data  Lc  TPSDriver.o [1]
+g_wCurrentApi           0x20001d4c    0x2  Data  Lc  TPS_1_API.o [1]
+g_wCurrentSlot          0x20001d4e    0x2  Data  Lc  TPS_1_API.o [1]
+g_wCurrentSubslot       0x20001d50    0x2  Data  Lc  TPS_1_API.o [1]
+g_zAlarmMailbox         0x20001a8c   0xa0  Data  Lc  TPS_1_API.o [1]
+g_zApiARContext         0x20001b2c   0x88  Data  Lc  TPS_1_API.o [1]
+g_zApiDeviceContext     0x20001c9c   0x1c  Data  Lc  TPS_1_API.o [1]
+hspi1                   0x20001bb4   0x58  Data  Gb  main.o [1]
+huart3                  0x20001c5c   0x40  Data  Gb  main.o [1]
+initImData              0x08007985  0x156  Code  Gb  TPSDriver.o [1]
+initSubslotIoxs         0x080074f9   0x2a  Code  Gb  TPSDriver.o [1]
+init_mparams            0x08003e5f   0x32  Code  Lc  dlmalloc.o [3]
+init_top                0x08003e91   0x32  Code  Lc  dlmalloc.o [3]
+ldexp                   0x08006911         Code  Gb  ldexp.o [4]
+ldexpl                  0x08006911         Code  Gb  ldexp.o [4]
+lib_malloc              0x080000ed   0xa4  Code  Gb  TPS_1_API.o [1]
+lib_malloc::zApiList    0x20001cb8   0x18  Data  Lc  TPS_1_API.o [1]
+lib_malloc::zSlotList   0x2000199c   0xf0  Data  Lc  TPS_1_API.o [1]
+lib_malloc::zSubslotList
+                        0x20000cc4  0x580  Data  Lc  TPS_1_API.o [1]
+localeconv              0x080063a5    0x4  Code  Gb  xlocale_c.o [3]
+main                    0x080089a9   0x26  Code  Gb  main.o [1]
+memchr                  0x08006409         Code  Gb  memchr.o [5]
+mparams                 0x20001cd0   0x18  Data  Lc  dlmalloc.o [3]
+obuf                    0x20001c0c   0x50  Data  Lc  xfiles.o [3]
+onAbortReq              0x08007611   0x10  Code  Gb  TPSDriver.o [1]
+onAlarmAck              0x08007871   0x10  Code  Gb  TPSDriver.o [1]
+onConnectDoneRes        0x080074e9   0x10  Code  Gb  TPSDriver.o [1]
+onConnectReq            0x08007409   0xe0  Code  Gb  TPSDriver.o [1]
+onDcpResetToFactory     0x08007945   0x10  Code  Gb  TPSDriver.o [1]
+onDcpSetIpSuite         0x080078b1   0x86  Code  Gb  TPSDriver.o [1]
+onDcpSetStationName     0x08007891    0xc  Code  Gb  TPSDriver.o [1]
+onDcpSignalReq          0x08007939    0xc  Code  Gb  TPSDriver.o [1]
+onDiagAlarmAck          0x08007881   0x10  Code  Gb  TPSDriver.o [1]
+onImDataChanged         0x08007779   0x64  Code  Gb  TPSDriver.o [1]
+onLedChanged            0x08007765   0x12  Code  Gb  TPSDriver.o [1]
+onPrmEndReq             0x08007525   0xea  Code  Gb  TPSDriver.o [1]
+onReadRecordDataObjectElement
+                        0x080076d1   0x92  Code  Gb  TPSDriver.o [1]
+onRebootTpsReq          0x0800789d    0xe  Code  Gb  TPSDriver.o [1]
+onRecordReadReq         0x08007621   0xae  Code  Gb  TPSDriver.o [1]
+onRecordWriteReq        0x080077dd   0x94  Code  Gb  TPSDriver.o [1]
+prepend_alloc           0x08003ec3  0x342  Code  Lc  dlmalloc.o [3]
+printf                  0x08007b8d   0x28  Code  Gb  printf.o [3]
+putchar                 0x080095c1    0xc  Code  Gb  putchar.o [3]
+registerCallbacks       0x08007177   0x9e  Code  Gb  TPSDriver.o [1]
+scalbln                 0x08006911         Code  Gb  ldexp.o [4]
+scalblnl                0x08006911         Code  Gb  ldexp.o [4]
+scalbn                  0x08006911         Code  Gb  ldexp.o [4]
+scalbnl                 0x08006911         Code  Gb  ldexp.o [4]
+scale                   0x08005ba3   0x46  Code  Lc  xprintffull.o [3]
+sec_hand                0x20001d48    0x4  Data  Lc  xfail_s.o [3]
+segment_holding         0x08003e41   0x1e  Code  Lc  dlmalloc.o [3]
+strchr                  0x080063b1         Code  Gb  strchr.o [5]
+strlen                  0x0800346d         Code  Gb  strlen.o [5]
+sys_alloc               0x080043fd  0x164  Code  Lc  dlmalloc.o [3]
+sys_trim                0x08004561   0x66  Code  Lc  dlmalloc.o [3]
+tmalloc_large           0x080045d5  0x384  Code  Lc  dlmalloc.o [3]
+tmalloc_small           0x08004959  0x1fe  Code  Lc  dlmalloc.o [3]
+uwTick                  0x20001cf0    0x4  Data  Gb  stm32f1xx_hal.o [1]
+uwTickFreq              0x200000d0    0x1  Data  Gb  stm32f1xx_hal.o [1]
+uwTickPrio              0x20000000    0x4  Data  Gb  stm32f1xx_hal.o [1]
+
+
+[1] = D:\stm_pn\EWARM\stm_pn\Obj
+[2] = command line
+[3] = dl7M_tlf.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  36 654 bytes of readonly  code memory
+   2 174 bytes of readonly  data memory
+  10 064 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

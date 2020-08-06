@@ -1,0 +1,15 @@
+"D:\Ksoftware\IAR Systems\Embedded Workbench 8.0\arm\bin\armproc.dll" 
+
+"D:\Ksoftware\IAR Systems\Embedded Workbench 8.0\arm\bin\armjlink2.dll" 
+
+"D:\stm_pn\EWARM\stm_pn\Exe\stm_pn.hex" 
+
+--plugin "D:\Ksoftware\IAR Systems\Embedded Workbench 8.0\arm\bin\armbat.dll" 
+
+--device_macro "D:\Ksoftware\IAR Systems\Embedded Workbench 8.0\arm\config\debugger\MindMotion\MM32F1xxxx.dmac" 
+
+--flash_loader "D:\Ksoftware\IAR Systems\Embedded Workbench 8.0\arm\config\flashloader\MindMotion\FlashMM32F10xx8.board" 
+
+
+
+
